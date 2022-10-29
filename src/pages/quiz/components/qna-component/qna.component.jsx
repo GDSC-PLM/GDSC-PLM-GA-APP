@@ -10,7 +10,7 @@ const QnAContainer = styled.section`
   justify-content: center;
 
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.75rem;
 
   max-width: 356px;
   overflow: hidden;
