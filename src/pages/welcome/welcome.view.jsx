@@ -19,17 +19,27 @@ const WelcomeContainer = styled.main`
 const WelcomeContent = styled(FlexContainer)`
   flex-direction: column;
   gap: 8rem;
+
+  animation: fadein 900ms linear forwards;
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 `;
 
-const WelcomeView = () => {
+const WelcomeView = ({ navigateToInstructions }) => {
   return (
     <WelcomeContainer>
       <WelcomeContent>
         <GDSCLogo />
-        <WelcomeHero />
+        <WelcomeHero navigateToInstructions={navigateToInstructions} />
       </WelcomeContent>
     </WelcomeContainer>
   );
 };
 
-export default WelcomeView;
+export default React.memo(WelcomeView);
