@@ -7,6 +7,10 @@ const DialogueBox = styled.div`
 
   border-radius: 17px;
   background: var(--gdsc-light-blue);
+
+  @media only screen and (min-width: 1024px) {
+    max-width: 626px;
+  }
 `;
 
 const DialogueText = styled.p`
@@ -16,6 +20,10 @@ const DialogueText = styled.p`
 
   text-align: center;
   color: var(--gdsc-core-blue1);
+
+  @media only screen and (min-width: 1024px) {
+    font-size: 32px;
+  }
 `;
 
 const QuestionDialogue = ({ question }) => {
