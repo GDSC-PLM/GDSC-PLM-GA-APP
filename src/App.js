@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
+import InstructionsModal from "./components/card/instructions-modal";
+
 import Welcome from "./pages/welcome";
 import Quiz from "./pages/quiz";
 
@@ -16,10 +18,13 @@ function App() {
   }
   return (
     !loading && (
-      <Routes>
-        <Route path="/" element={<Welcome />} />
-        <Route path="/quiz" element={<Quiz />} />
-      </Routes>
+      <>
+        <InstructionsModal />
+        <Routes>
+          <Route path="/" element={<Welcome />} />
+          <Route path="/quiz" element={<Quiz />} />
+        </Routes>
+      </>
     )
   );
 }

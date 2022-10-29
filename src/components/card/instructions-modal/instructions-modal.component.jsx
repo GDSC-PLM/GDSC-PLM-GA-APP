@@ -18,6 +18,16 @@ const InstructionsModalContainer = styled.section`
   }
 
   transition: 300ms ease-in-out;
+
+  animation: fadein 300ms linear forwards;
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 `;
 
 const InstructionsModalContent = styled(FlexContainer)`
@@ -29,7 +39,7 @@ const ModalImage = styled.img`
   scale: 0.75;
 
   @media only screen and (min-width: 1024px) {
-    scale: 0.85;
+    scale: 0.9;
   }
 `;
 
@@ -43,6 +53,9 @@ const ModalMainContent = styled(FlexContainer)`
 
 const ModalTextContainer = styled(FlexContainer)`
   flex-direction: column;
+  @media only screen and (min-width: 1024px) {
+    padding: 1.75rem;
+  }
 `;
 
 const ModalText = styled.p`
@@ -77,7 +90,7 @@ const ModalText = styled.p`
   }}
 `;
 
-const InstructionsModalComponent = () => {
+const InstructionsModalComponent = ({ navigateToQuiz = null }) => {
   return (
     <InstructionsModalContainer>
       <InstructionsModalContent>
@@ -100,7 +113,7 @@ const InstructionsModalComponent = () => {
             </ModalText>
           </ModalTextContainer>
         </ModalMainContent>
-        <CallToAction text="Start" />
+        <CallToAction text="Start" onClick={navigateToQuiz} />
       </InstructionsModalContent>
     </InstructionsModalContainer>
   );
