@@ -10,6 +10,7 @@ const DialogueBox = styled.div`
 
   @media only screen and (min-width: 1024px) {
     max-width: 626px;
+    padding: 2.5rem;
   }
 `;
 
