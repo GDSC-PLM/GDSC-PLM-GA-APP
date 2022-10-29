@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { FlexContainer } from "../../styles/containers";
-import GDSCLogo from "../../assets/images/GDSC-PLM.logo";
+import GDSCLogo from "../../assets/images/gdsc-logo/GDSC-PLM.logo";
 import WelcomeHero from "./components/welcome-hero/welcome-hero.component";
 
 const WelcomeContainer = styled.main`
