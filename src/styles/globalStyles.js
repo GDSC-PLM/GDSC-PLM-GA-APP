@@ -16,7 +16,8 @@ export const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
 
         --gdsc-light-blue: #E3F2FD;
-        --gdsc-core-blue: #498AF4;
+        --gdsc-core-blue1: #498AF4;
+        --gdsc-core-blue2: #4891FE;
         --gdsc-core-red: #EA4335;
         --gdsc-core-green: #61B979;
         --gdsc-core-yellow: #FBBF0E;
