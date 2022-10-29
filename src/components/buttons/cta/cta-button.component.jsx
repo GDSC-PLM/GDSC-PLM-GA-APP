@@ -16,6 +16,8 @@ const CTAButton = styled.button`
   cursor: pointer;
 `;
 
-const CallToAction = ({ text }) => <CTAButton>{text}</CTAButton>;
+const CallToAction = ({ text, onClick = null }) => (
+  <CTAButton onClick={onClick}>{text}</CTAButton>
+);
 
 export default CallToAction;
