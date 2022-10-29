@@ -20,6 +20,16 @@ const QnAContainer = styled.section`
   }
 
   transition: 300ms ease-in-out;
+
+  animation: fadein 900ms linear forwards;
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 `;
 
 const QnAText = styled.p`
@@ -36,6 +46,10 @@ const QnAChoicesContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+
+  @media only screen and (min-width: 1024px) {
+    gap: 20px;
+  }
 `;
 
 const QnAComponent = ({ question, handleAnswer }) => (

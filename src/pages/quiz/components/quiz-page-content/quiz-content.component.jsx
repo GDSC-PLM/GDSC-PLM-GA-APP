@@ -11,12 +11,15 @@ const QuizContentContainer = styled.section`
   flex-direction: column;
   width: 100%;
 
-  gap: 1rem;
+  gap: 0.5rem;
+  margin-top: 30px;
 
   @media only screen and (min-width: 1024px) {
     align-items: flex-end;
     flex-direction: row;
+
     gap: 2.5rem;
+    margin: 0px 20px 0px 0px;
   }
 `;
 
