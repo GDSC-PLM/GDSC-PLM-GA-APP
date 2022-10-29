@@ -1,4 +1,9 @@
 import React, { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+
+import Welcome from "./pages/welcome";
+import Quiz from "./pages/quiz";
+
 function App() {
   const [loading, setLoading] = useState(true);
   const preloader = document.getElementById("pre-loader");
@@ -9,7 +14,14 @@ function App() {
       setLoading(false);
     }, 1500);
   }
-  return !loading && <div>Hello World</div>;
+  return (
+    !loading && (
+      <Routes>
+        <Route path="/" element={<Welcome />} />
+        <Route path="/quiz" element={<Quiz />} />
+      </Routes>
+    )
+  );
 }
 
 export default App;
