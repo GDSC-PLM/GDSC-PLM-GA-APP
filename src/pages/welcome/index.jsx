@@ -1,7 +1,8 @@
 import React from "react";
+import WelcomeView from "./welcome.view";
 
 const Welcome = () => {
-  return <h1>Welcome Page</h1>;
+  return <WelcomeView />;
 };
 
 export default React.memo(Welcome);
