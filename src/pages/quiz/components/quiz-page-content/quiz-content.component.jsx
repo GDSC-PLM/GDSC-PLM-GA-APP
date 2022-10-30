@@ -27,14 +27,14 @@ const Haribot = styled.img`
   scale: 0.75;
 `;
 
-const QuizContent = ({ haribot, question }) => {
+const QuizContent = ({ haribot, question, checkAnswer }) => {
   return (
     <QuizContentContainer>
       <Haribot
         src={require(`../../../../assets/images/haribots/${haribot.type}-${haribot.state}.png`)}
         alt="haribot-state"
       />
-      <QnA question={question} />
+      <QnA question={question} handleAnswer={checkAnswer} />
     </QuizContentContainer>
   );
 };
