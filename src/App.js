@@ -5,6 +5,7 @@ import InstructionsModal from "./components/card/instructions-modal";
 
 import Welcome from "./pages/welcome";
 import Quiz from "./pages/quiz";
+import Score from "./pages/score";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -22,7 +23,10 @@ function App() {
         <InstructionsModal />
         <Routes>
           <Route path="/" element={<Welcome />} />
-          <Route path="/quiz" element={<Quiz />} />
+          <Route path="/quiz">
+            <Route index element={<Quiz />} />
+            <Route path="score" element={<Score />} />
+          </Route>
         </Routes>
       </>
     )

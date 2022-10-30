@@ -55,7 +55,7 @@ const ScoreCTAText = styled.p`
   }}
 `;
 
-const ScoreCTA = ({ score }) => {
+const ScoreCTA = ({ score, onClick }) => {
   return (
     <ScoreCTAContainer>
       <ScoreCTATextContainer>
@@ -69,7 +69,7 @@ const ScoreCTA = ({ score }) => {
           <span>{score}</span>/5
         </ScoreCTAText>
       </ScoreCTATextContainer>
-      <CallToAction text="Try again" />
+      <CallToAction text="Try again" onClick={onClick} />
     </ScoreCTAContainer>
   );
 };
