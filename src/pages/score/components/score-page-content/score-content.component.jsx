@@ -32,14 +32,14 @@ const ScoreContainer = styled(FlexContainer)`
   gap: 2rem;
 `;
 
-const ScoreContent = ({ haribot, score }) => {
+const ScoreContent = ({ haribot, score, tryAgain }) => {
   return (
     <ScoreContentContainer>
       <Haribot
         src={require(`../../../../assets/images/haribots/${haribot.type}-${haribot.state}.png`)}
       />
       <ScoreContainer>
-        <ScoreCTA score={score} />
+        <ScoreCTA score={score} onClick={tryAgain} />
         <ScoreLinks />
       </ScoreContainer>
     </ScoreContentContainer>

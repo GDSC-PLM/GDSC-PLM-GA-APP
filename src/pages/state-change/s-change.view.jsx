@@ -40,9 +40,7 @@ const StateChangeView = ({ haribot }) => {
   return (
     <ChangeContainer id="state-change-page">
       <Haribot
-        src={require(`../../assets/images/haribots/${haribot.type}-${
-          haribot.state + 1
-        }.png`)}
+        src={require(`../../assets/images/haribots/${haribot.type}-${haribot.state}.png`)}
         alt="haribot-state-change"
       />
       <GDSCLogo />

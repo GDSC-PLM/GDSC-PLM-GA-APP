@@ -31,6 +31,7 @@ export const AppProvider = ({ children }) => {
         generateHaribot,
 
         questions,
+        setQuestions,
 
         showHaribotStateChange,
         setShowHaribotStateChange,

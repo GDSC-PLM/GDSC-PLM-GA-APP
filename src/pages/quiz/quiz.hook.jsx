@@ -45,7 +45,7 @@ const useQuizHook = (context) => {
 
   useEffect(() => {
     if (haribot.state === 3 || questionNumber > 5) {
-      navigate("/score");
+      navigate("/quiz/score");
       return;
     }
 
