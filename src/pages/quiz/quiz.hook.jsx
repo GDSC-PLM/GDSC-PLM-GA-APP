@@ -13,8 +13,11 @@ const useQuizHook = (context) => {
 
   const checkAnswer = (e) => {
     const choice = e.target.closest("button");
+    const stateChange = document.getElementById("state-change-page");
+
     if (choice.textContent !== question.answer) {
       choice.style.background = "var(--gdsc-core-red)";
+      stateChange.style.transform = "translateX(0%)";
 
       setTimeout(() => {
         setQuestionNumber((prev) => prev + 1);
@@ -25,7 +28,8 @@ const useQuizHook = (context) => {
           };
         });
         choice.style.background = "var(--gdsc-core-blue1)";
-      }, [1000]);
+        stateChange.style.transform = "translateX(100%)";
+      }, [2000]);
 
       return;
     }

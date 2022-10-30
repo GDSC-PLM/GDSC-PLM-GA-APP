@@ -8,7 +8,7 @@ const haribotType = ["yellow"];
 export const AppProvider = ({ children }) => {
   const [showInstructionsModal, setShowInstructionsModal] = useState(false);
   const [haribot, setHaribot] = useState({});
-  const [haribotStateChange, setHaribotStateChange] = useState(false);
+  const [showHaribotStateChange, setShowHaribotStateChange] = useState(false);
   const [questions, setQuestions] = useState([]);
   const [score, setScore] = useState(0);
 
@@ -32,8 +32,8 @@ export const AppProvider = ({ children }) => {
 
         questions,
 
-        haribotStateChange,
-        setHaribotStateChange,
+        showHaribotStateChange,
+        setShowHaribotStateChange,
 
         score,
         setScore,

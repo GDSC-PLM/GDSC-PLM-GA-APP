@@ -4,7 +4,9 @@ import styled from "styled-components";
 import QuizContent from "./components/quiz-page-content/quiz-content.component";
 import GDSCLogo from "../../assets/images/gdsc-logo/GDSC-PLM.logo";
 
-const QuizContainer = styled.main`
+import StateChange from "../state-change/index";
+
+export const QuizContainer = styled.main`
   display: flex;
   align-items: center;
 
@@ -29,14 +31,17 @@ const QuizContainer = styled.main`
 
 const QuizView = ({ haribot, question, checkAnswer }) => {
   return (
-    <QuizContainer>
-      <QuizContent
-        haribot={haribot}
-        question={question}
-        checkAnswer={checkAnswer}
-      />
-      <GDSCLogo />
-    </QuizContainer>
+    <>
+      <StateChange />
+      <QuizContainer>
+        <QuizContent
+          haribot={haribot}
+          question={question}
+          checkAnswer={checkAnswer}
+        />
+        <GDSCLogo />
+      </QuizContainer>
+    </>
   );
 };
 
