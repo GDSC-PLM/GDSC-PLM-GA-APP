@@ -27,10 +27,14 @@ const QuizContainer = styled.main`
   }
 `;
 
-const QuizView = ({ haribot, question }) => {
+const QuizView = ({ haribot, question, checkAnswer }) => {
   return (
     <QuizContainer>
-      <QuizContent haribot={haribot} question={question} />
+      <QuizContent
+        haribot={haribot}
+        question={question}
+        checkAnswer={checkAnswer}
+      />
       <GDSCLogo />
     </QuizContainer>
   );

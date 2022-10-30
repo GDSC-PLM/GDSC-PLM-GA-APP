@@ -2,14 +2,14 @@ import React from "react";
 import styled from "styled-components";
 
 const DialogueBox = styled.div`
-  max-width: 356px;
+  min-width: 356px;
   padding: 26px;
 
   border-radius: 17px;
   background: var(--gdsc-light-blue);
 
   @media only screen and (min-width: 1024px) {
-    max-width: 626px;
+    min-width: 626px;
     padding: 2.5rem;
   }
 `;
