@@ -24,6 +24,7 @@ export const GlobalStyles = createGlobalStyle`
 
         --gdsc-text-primary: #434343;
         --gdsc-text-body: #676C72;
+        --gdsc-text-grey: #C8C8C8;
         --gdsc-text-btn: #fff;
     }
 `;
