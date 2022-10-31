@@ -7,6 +7,9 @@ import Welcome from "./pages/welcome";
 import Quiz from "./pages/quiz";
 import Score from "./pages/score";
 
+import Protected from "./components/protected/protected.component";
+import Admin from "./pages/admin";
+
 function App() {
   const [loading, setLoading] = useState(true);
   const preloader = document.getElementById("pre-loader");
@@ -27,6 +30,14 @@ function App() {
             <Route index element={<Quiz />} />
             <Route path="score" element={<Score />} />
           </Route>
+          <Route
+            path="/admin"
+            element={
+              <Protected>
+                <Admin />
+              </Protected>
+            }
+          />
         </Routes>
       </>
     )
