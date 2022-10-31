@@ -5,7 +5,8 @@ import { FlexContainer } from "../../styles/containers";
 import GDSCLogo from "../../assets/images/gdsc-logo/GDSC-PLM.logo";
 import WelcomeHero from "./components/welcome-hero/welcome-hero.component";
 
-import wave from "../../assets/water/wave.png";
+import wave1 from "../../assets/water/wave1.png";
+import wave2 from "../../assets/water/wave2.png";
 
 const WelcomeContainer = styled.main`
   display: flex;
@@ -29,9 +30,9 @@ const WelcomeContainer = styled.main`
   }
 
   .waves {
-    background: url(${wave}) repeat-x;
+    background: url(${wave2}) repeat-x;
     position: absolute;
-    top: -150px;
+    top: -198px;
     width: 6400px;
     height: 450px;
 
@@ -40,6 +41,7 @@ const WelcomeContainer = styled.main`
   }
 
   .waves:nth-of-type(2) {
+    background: url(${wave1}) repeat-x;
     top: -150px;
 
     animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -0.125s infinite,
@@ -51,7 +53,7 @@ const WelcomeContainer = styled.main`
       margin-left: 0;
     }
     100% {
-      margin-left: -1485px;
+      margin-left: -1555px;
     }
   }
 
