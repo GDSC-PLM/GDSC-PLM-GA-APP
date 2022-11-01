@@ -1,8 +1,8 @@
 import { createContext, useState } from "react";
 import { data } from "../api";
 
-import { db } from "../api/firebase-config";
-import { getDocs, collection } from "firebase/firestore";
+import { questionsRef } from "../api/firebase-config";
+import { getDocs } from "firebase/firestore";
 
 const AppContext = createContext();
 
@@ -15,13 +15,6 @@ export const AppProvider = ({ children }) => {
   const [questions, setQuestions] = useState([]);
   const [score, setScore] = useState(0);
 
-  // const questionsRef = collection(
-  //   db,
-  //   "gdsc-subprojects",
-  //   "_",
-  //   "general_assembly_2022"
-  // );
-
   const generateHaribot = async () => {
     setHaribot({
       type: haribotType[Math.floor(Math.random() * haribotType.length)],
@@ -31,8 +24,11 @@ export const AppProvider = ({ children }) => {
 
     // commenting this for now until we get questions and answers, we're not adding dummy qna in firestore
 
-    // const _data = await getDocs(questionsRef);
-    // console.log(_data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    const fetchQuestions = await getDocs(questionsRef);
+    const [_data] = fetchQuestions.docs.map((doc) => ({
+      ...doc.data(),
+      id: doc.id,
+    }));
   };
 
   return (
