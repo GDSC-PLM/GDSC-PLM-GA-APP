@@ -10,6 +10,8 @@ import wave2 from "../../assets/water/wave2.png";
 
 import hbotYellow from "../../assets/images/haribots/hbot-yellow.png";
 import hbotBlue from "../../assets/images/haribots/hbot-blue.png";
+import hbotGreen from "../../assets/images/haribots/hbot-green.png";
+import hbotRed from "../../assets/images/haribots/hbot-red.png";
 
 const WelcomeContainer = styled.main`
   display: flex;
@@ -57,20 +59,24 @@ const WelcomeContainer = styled.main`
     background: url(${hbotYellow});
     --size: 346px;
     width: var(--size);
-    height: var(--size);
+    aspect-ratio: 1;
 
     position: absolute;
     left: -120px;
-    bottom: -60px;
+    bottom: -120px;
 
     animation: float 3s ease-in-out infinite;
     transition: 350ms ease-in-out;
     scale: 0.5;
 
-    @media only screen and (min-width: 1024px) and (max-width: 1440px) {
+    @media only screen and (min-width: 1024px) and (max-width: 1439px) {
       scale: 1;
-      left: 40px;
-      bottom: -50px;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+
+      bottom: -140px;
     }
 
     @media only screen and (min-width: 1440px) {
@@ -79,8 +85,11 @@ const WelcomeContainer = styled.main`
       height: var(--size);
 
       scale: 1;
-      left: 400px;
-      bottom: -50px;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      bottom: -100px;
     }
   }
 
@@ -88,38 +97,93 @@ const WelcomeContainer = styled.main`
     background: url(${hbotBlue});
     --size: 600px;
     width: var(--size);
-    height: var(--size);
+    aspect-ratio: 1;
 
     position: absolute;
     right: -200px;
-    bottom: -150px;
+    bottom: -200px;
 
     animation: float 5s ease-in-out infinite;
     transition: 350ms ease-in-out;
     scale: 0.5;
 
-    @media only screen and (min-width: 1024px) and (max-width: 1440px) {
+    @media only screen and (min-width: 1024px) and (max-width: 1439px) {
       scale: 1;
       right: -120px;
       bottom: -120px;
+      z-index: 99997;
     }
 
     @media only screen and (min-width: 1440px) {
       --size: 550px;
       width: var(--size);
-      height: var(--size);
+      aspect-ratio: 1;
 
       scale: 1;
-      right: 200px;
+      right: 0px;
       bottom: -80px;
     }
+  }
 
-    z-index: 99997;
+  .hbot-green {
+    background: url(${hbotGreen});
+    --size: 170px;
+    width: var(--size);
+    aspect-ratio: 1;
+
+    position: absolute;
+    animation: float 4s ease-in-out infinite;
+    transition: 350ms ease-in-out;
+
+    display: none;
+    @media only screen and (min-width: 1024px) and (max-width: 1439px) {
+      display: block;
+      scale: 1;
+      left: 0;
+      bottom: -50px;
+    }
+
+    @media only screen and (min-width: 1440px) {
+      display: block;
+      scale: 1;
+      left: 0px;
+      bottom: -10px;
+    }
+  }
+
+  .hbot-red {
+    background: url(${hbotRed});
+    --size: 190px;
+    width: var(--size);
+    aspect-ratio: 1;
+
+    position: absolute;
+    animation: float 2s ease-in-out infinite;
+    transition: 350ms ease-in-out;
+
+    display: none;
+    margin-left: 250px;
+
+    @media only screen and (min-width: 1024px) and (max-width: 1439px) {
+      display: block;
+      scale: 1;
+      left: 0;
+      bottom: -50px;
+    }
+
+    @media only screen and (min-width: 1440px) {
+      display: block;
+      scale: 1;
+      left: 0px;
+      bottom: -50px;
+
+      margin-left: 300px;
+    }
   }
 
   .qmark-bg {
     position: absolute;
-    z-index: -1;
+    z-index: -9999;
     scale: 0.5;
 
     @media only screen and (min-width: 1024px) {
@@ -196,6 +260,8 @@ const WelcomeView = ({ navigateToInstructions }) => {
         <div className="waves"></div>
         <div className="hbot-yellow"></div>
         <div className="hbot-blue"></div>
+        <div className="hbot-green"></div>
+        <div className="hbot-red"></div>
       </div>
     </WelcomeContainer>
   );
