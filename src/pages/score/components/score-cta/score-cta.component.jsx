@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { FlexContainer } from "../../../../styles/containers";
+import { ScoreMessage } from "../score-page-content/score-content.component";
 import CallToAction from "../../../../components/buttons/cta/cta-button.component";
 
 const ScoreCTAContainer = styled.section`
@@ -12,6 +13,17 @@ const ScoreCTAContainer = styled.section`
 
   width: 100%;
   gap: 1rem;
+
+  p.score-message-desktop {
+    display: none;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    p.score-message-desktop {
+      display: block;
+      font-size: 24px;
+    }
+  }
 `;
 
 const ScoreCTATextContainer = styled(FlexContainer)`
@@ -58,6 +70,11 @@ const ScoreCTAText = styled.p`
 const ScoreCTA = ({ score, onClick }) => {
   return (
     <ScoreCTAContainer>
+      <ScoreMessage className="score-message-desktop">
+        {score > 2
+          ? "Congratulations, you saved Haribot!"
+          : "Uh oh, Haribot drowned."}
+      </ScoreMessage>
       <ScoreCTATextContainer>
         <ScoreCTAText
           type="sub"
