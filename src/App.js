@@ -10,6 +10,8 @@ import Score from "./pages/score";
 import Protected from "./components/protected/protected.component";
 import Admin from "./pages/admin";
 
+import Unauthorized from "./pages/unauthorized/unauthorized-page.component";
+
 function App() {
   const [loading, setLoading] = useState(true);
   const preloader = document.getElementById("pre-loader");
@@ -38,6 +40,7 @@ function App() {
               </Protected>
             }
           />
+          <Route path="/unauthorized" element={<Unauthorized />} />
         </Routes>
       </>
     )
