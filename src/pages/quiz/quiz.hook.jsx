@@ -50,11 +50,9 @@ const useQuizHook = (context) => {
     }
 
     setQuestion(questions.filter(({ number }) => number === questionNumber)[0]);
-    navigate(`/quiz?question=${questionNumber}`);
+    navigate(`/quiz?question=${questionNumber}`, { replace: true });
   }, [questionNumber, haribot]);
 
-  console.log(questions);
-  console.log(question);
   return { haribot, question, checkAnswer };
 };
 
