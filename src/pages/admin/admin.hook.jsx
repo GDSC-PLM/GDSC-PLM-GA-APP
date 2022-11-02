@@ -1,7 +1,9 @@
 import { useRef } from "react";
 
-import { questionsRef } from "../../api/firebase-config";
-import { doc, getDocs, updateDoc } from "firebase/firestore";
+import { generalAssemblyRef } from "../../api/firebase-config";
+import { collection, addDoc } from "firebase/firestore";
+
+import { fetchDocument } from "../../context/app.context";
 
 const useAdminHook = () => {
   const formRef = useRef();
@@ -10,13 +12,9 @@ const useAdminHook = () => {
     e.preventDefault();
     document.activeElement.blur();
 
-    const fetchQuestions = await getDocs(questionsRef);
-    const [_data] = fetchQuestions.docs.map((doc) => ({
-      ...doc.data(),
-      id: doc.id,
-    }));
+    const _data = await fetchDocument(generalAssemblyRef);
 
-    const questionsDoc = doc(questionsRef, _data.id);
+    const questionsRef = collection(generalAssemblyRef, _data.id, "questions");
 
     const qTemplate = { prompt: "", choices: [], answer: "" };
 
@@ -44,9 +42,7 @@ const useAdminHook = () => {
       }
     });
 
-    await updateDoc(questionsDoc, {
-      questions: [..._data.questions, { ...qTemplate }],
-    });
+    await addDoc(questionsRef, { ...qTemplate });
   };
 
   return { formRef, handleForm };

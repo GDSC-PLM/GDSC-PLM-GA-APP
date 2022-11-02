@@ -33,7 +33,7 @@ function App() {
           <Route
             path="/admin"
             element={
-              <Protected>
+              <Protected apiKey={process.env.REACT_APP_API_KEY}>
                 <Admin />
               </Protected>
             }

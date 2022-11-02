@@ -18,7 +18,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-export const questionsRef = collection(
+export const generalAssemblyRef = collection(
   db,
   "gdsc-subprojects",
   "_",
