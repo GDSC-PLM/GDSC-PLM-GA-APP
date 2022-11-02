@@ -44,7 +44,7 @@ const ModalImage = styled.img`
 `;
 
 const ModalMainContent = styled(FlexContainer)`
-  margin: 10px auto;
+  margin-top: 16px;
   flex-direction: column;
   @media only screen and (min-width: 1024px) {
     flex-direction: row;
@@ -54,7 +54,7 @@ const ModalMainContent = styled(FlexContainer)`
 const ModalTextContainer = styled(FlexContainer)`
   flex-direction: column;
   @media only screen and (min-width: 1024px) {
-    padding: 1.75rem;
+    padding: 0rem 1.75rem;
   }
 `;
 
@@ -111,9 +111,9 @@ const InstructionsModalComponent = ({ navigateToQuiz = null }) => {
             <ModalText type="content">
               <strong>3 wrong answers</strong> will drown Haribot!
             </ModalText>
+            <CallToAction text="Start" onClick={navigateToQuiz} />
           </ModalTextContainer>
         </ModalMainContent>
-        <CallToAction text="Start" onClick={navigateToQuiz} />
       </InstructionsModalContent>
     </InstructionsModalContainer>
   );
