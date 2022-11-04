@@ -21,7 +21,7 @@ const WelcomeContainer = styled.main`
   max-width: 100vw;
   min-height: 100vh;
 
-  padding: 4rem;
+  padding: 2.5rem;
   overflow: hidden;
 
   position: relative;
@@ -32,6 +32,10 @@ const WelcomeContainer = styled.main`
     position: absolute;
     bottom: 0;
     left: 0;
+
+    div.hbot-container {
+      margin: 0 auto;
+    }
   }
 
   .waves {
@@ -89,7 +93,7 @@ const WelcomeContainer = styled.main`
       right: 0;
       margin-left: auto;
       margin-right: auto;
-      bottom: -100px;
+      bottom: -120px;
     }
   }
 
@@ -120,8 +124,9 @@ const WelcomeContainer = styled.main`
       aspect-ratio: 1;
 
       scale: 1;
-      right: 0px;
+      right: -40px;
       bottom: -80px;
+      z-index: 99997;
     }
   }
 
@@ -147,7 +152,7 @@ const WelcomeContainer = styled.main`
       display: block;
       scale: 1;
       left: 0px;
-      bottom: -10px;
+      bottom: -50px;
     }
   }
 
@@ -191,6 +196,15 @@ const WelcomeContainer = styled.main`
     }
 
     transition: 300ms ease-in-out;
+  }
+
+  .hbot-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    max-width: 1440px;
   }
 
   @keyframes wave {
@@ -258,10 +272,13 @@ const WelcomeView = ({ navigateToInstructions }) => {
       <div className="waves-container">
         <div className="waves"></div>
         <div className="waves"></div>
-        <div className="hbot-yellow"></div>
-        <div className="hbot-blue"></div>
-        <div className="hbot-green"></div>
-        <div className="hbot-red"></div>
+
+        <div className="hbot-container">
+          <div className="hbot-yellow"></div>
+          <div className="hbot-blue"></div>
+          <div className="hbot-green"></div>
+          <div className="hbot-red"></div>
+        </div>
       </div>
     </WelcomeContainer>
   );
