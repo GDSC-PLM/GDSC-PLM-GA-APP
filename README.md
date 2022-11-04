@@ -1,4 +1,6 @@
-<h1>GDSC PLM GA APP</h1>
+# GDSC PLM — Save Haribot App
+
+<img src='./src/assets/images/app-prev.png' alt="save-haribot-prev"/>
 
 ### How to get started
 
