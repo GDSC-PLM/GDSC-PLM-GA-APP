@@ -20,8 +20,15 @@ export const QuizContainer = styled.main`
 
   img.logo {
     position: absolute;
-    bottom: 40px;
-    left: 40px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: 30px;
+
+    @media only screen and (min-width: 1024px) {
+      left: 40px;
+      margin: 0;
+    }
   }
 
   @media only screen and (min-width: 1024px) {
@@ -31,17 +38,15 @@ export const QuizContainer = styled.main`
 
 const QuizView = ({ haribot, question, checkAnswer }) => {
   return (
-    <>
+    <QuizContainer>
+      <QuizContent
+        haribot={haribot}
+        question={question}
+        checkAnswer={checkAnswer}
+      />
+      <GDSCLogo />
       <StateChange />
-      <QuizContainer>
-        <QuizContent
-          haribot={haribot}
-          question={question}
-          checkAnswer={checkAnswer}
-        />
-        <GDSCLogo />
-      </QuizContainer>
-    </>
+    </QuizContainer>
   );
 };
 
