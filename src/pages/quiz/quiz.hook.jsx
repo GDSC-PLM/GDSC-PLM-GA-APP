@@ -17,6 +17,7 @@ const useQuizHook = (context) => {
 
     if (choice.textContent !== question.answer) {
       choice.style.background = "var(--gdsc-core-red)";
+      stateChange.style.visibility = "visible";
       stateChange.style.transform = "translateX(0%)";
 
       setTimeout(() => {
@@ -29,6 +30,7 @@ const useQuizHook = (context) => {
         });
         choice.style.background = "var(--gdsc-core-blue1)";
         stateChange.style.transform = "translateX(100%)";
+        stateChange.style.visibility = "hidden";
       }, [2000]);
 
       return;

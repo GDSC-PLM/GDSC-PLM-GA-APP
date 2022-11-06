@@ -12,7 +12,7 @@ const QuizContentContainer = styled.section`
   width: 100%;
 
   gap: 0.5rem;
-  margin-top: 30px;
+  margin-top: calc(15vh - 30px);
 
   @media only screen and (min-width: 1024px) {
     align-items: flex-end;
@@ -24,7 +24,15 @@ const QuizContentContainer = styled.section`
 `;
 
 const Haribot = styled.img`
-  scale: 0.75;
+  width: 165px;
+  height: 178px;
+
+  @media only screen and (min-width: 1024px) {
+    width: 291px;
+    height: 321px;
+
+    scale: 0.85;
+  }
 `;
 
 const QuizContent = ({ haribot, question, checkAnswer }) => {

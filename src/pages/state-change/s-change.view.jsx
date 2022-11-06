@@ -14,8 +14,15 @@ const ChangeContainer = styled.main`
 
   img.logo {
     position: absolute;
-    bottom: 40px;
-    left: 40px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: 30px;
+
+    @media only screen and (min-width: 1024px) {
+      left: 40px;
+      margin: 0;
+    }
   }
 
   position: absolute;
@@ -32,6 +39,7 @@ const ChangeContainer = styled.main`
   }
 
   z-index: 9999;
+  visibility: hidden;
 `;
 
 const Haribot = styled.img``;
