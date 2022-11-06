@@ -45,7 +45,14 @@ const SocialsContainer = styled(FlexContainer)`
   gap: 12px;
 `;
 
-const Link = styled.a``;
+const Link = styled.a`
+  &:hover {
+    transform: translateY(-4px);
+  }
+
+  transition: transform 300ms ease-in-out;
+`;
+
 const Socials = styled.img``;
 
 const ScoreLinks = () => {
@@ -58,17 +65,29 @@ const ScoreLinks = () => {
         <span className="core-yellow">C</span> PLM for more!
       </ScoreLinksText>
       <SocialsContainer>
-        <Link href="#">
+        <Link
+          href="https://www.facebook.com/gdsc.plm"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Socials
             src={require("../../../../assets/images/socials/fb-logo.png")}
           />
         </Link>
-        <Link href="#">
+        <Link
+          href="https://twitter.com/gdsc_plm"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Socials
             src={require("../../../../assets/images/socials/twitter-logo.png")}
           />
         </Link>
-        <Link href="#">
+        <Link
+          href="https://www.instagram.com/gdsc_plm/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Socials
             src={require("../../../../assets/images/socials/ig-logo.png")}
           />
