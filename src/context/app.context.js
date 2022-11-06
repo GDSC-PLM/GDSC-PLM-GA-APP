@@ -2,7 +2,9 @@ import { createContext, useState } from "react";
 import { data } from "../api";
 
 import { generalAssemblyRef } from "../api/firebase-config";
-import { collection, getDocs } from "firebase/firestore";
+import { collection } from "firebase/firestore";
+
+import ctx from "./utils";
 
 const AppContext = createContext();
 
@@ -23,10 +25,8 @@ export const AppProvider = ({ children }) => {
     setQuestions(generateQuestions(data));
 
     // we now get questions from questions collection
-    // const _data = await fetchDocument(generalAssemblyRef);
-    // const questionsRef = collection(generalAssemblyRef, _data.id, "questions");
-    // const test = await fetchDocuments(questionsRef);
-    // console.log(test);
+    const test = await ctx.getRandomQuestions();
+    console.log(test);
   };
 
   return (
@@ -68,28 +68,6 @@ function generateQuestions(q) {
       number: i + 1,
     };
   });
-}
-
-export async function fetchDocument(ref) {
-  const res = await getDocs(ref);
-  const [data] = res.docs
-    .map((doc) => ({
-      ...doc.data(),
-      id: doc.id,
-    }))
-    .filter((obj) => obj.app === "gdsc-plm-save-haribot");
-
-  return data;
-}
-
-async function fetchDocuments(ref) {
-  const res = await getDocs(ref);
-  const data = res.docs.map((doc) => ({
-    ...doc.data(),
-    id: doc.id,
-  }));
-
-  return data;
 }
 
 export default AppContext;

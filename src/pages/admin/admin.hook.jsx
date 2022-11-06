@@ -1,9 +1,7 @@
 import { useRef } from "react";
 
-import { generalAssemblyRef } from "../../api/firebase-config";
-import { collection, addDoc } from "firebase/firestore";
-
-import { fetchDocument } from "../../context/app.context";
+import { addDoc } from "firebase/firestore";
+import ctx from "../../context/utils";
 
 const useAdminHook = () => {
   const formRef = useRef();
@@ -12,9 +10,7 @@ const useAdminHook = () => {
     e.preventDefault();
     document.activeElement.blur();
 
-    const _data = await fetchDocument(generalAssemblyRef);
-
-    const questionsRef = collection(generalAssemblyRef, _data.id, "questions");
+    const questionsRef = await ctx.getQuestionsRef();
 
     const qTemplate = { prompt: "", choices: [], answer: "" };
 
