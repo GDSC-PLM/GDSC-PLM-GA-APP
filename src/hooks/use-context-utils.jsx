@@ -1,8 +1,8 @@
 import { generalAssemblyRef } from "../api/firebase-config";
 import { collection, getDocs } from "firebase/firestore";
 
-class ContextUtils {
-  async #fetchAppDocument() {
+const useContextUtils = () => {
+  const fetchAppDocument = async () => {
     const res = await getDocs(generalAssemblyRef);
     const [data] = res.docs
       .map((doc) => ({
@@ -12,9 +12,9 @@ class ContextUtils {
       .filter((obj) => obj.app === "gdsc-plm-save-haribot");
 
     return data.id;
-  }
+  };
 
-  async #fetchAppQuestions(appDocId) {
+  const fetchAppQuestions = async (appDocId) => {
     const questionsRef = collection(generalAssemblyRef, appDocId, "questions");
 
     const res = await getDocs(questionsRef);
@@ -24,9 +24,9 @@ class ContextUtils {
     }));
 
     return data;
-  }
+  };
 
-  #generateRandomQuestions(q) {
+  const generateRandomQuestions = (q) => {
     if (q.length < 5) return q;
 
     const indices = [];
@@ -42,23 +42,26 @@ class ContextUtils {
         number: i + 1,
       };
     });
-  }
+  };
 
-  async getQuestionsRef() {
-    const appDocId = await this.#fetchAppDocument();
+  const getQuestionsRef = async () => {
+    const appDocId = await fetchAppDocument();
 
     return collection(generalAssemblyRef, appDocId, "questions");
-  }
+  };
 
-  async getRandomQuestions() {
-    const appDocId = await this.#fetchAppDocument();
-    const appQuestions = await this.#fetchAppQuestions(appDocId);
-    const questions = this.#generateRandomQuestions(appQuestions);
+  const getRandomQuestions = async () => {
+    const appDocId = await fetchAppDocument();
+    const appQuestions = await fetchAppQuestions(appDocId);
+    const questions = generateRandomQuestions(appQuestions);
 
     return questions;
-  }
-}
+  };
 
-const ctx = new ContextUtils();
+  return {
+    getQuestionsRef,
+    getRandomQuestions,
+  };
+};
 
-export default ctx;
+export default useContextUtils;

@@ -1,10 +1,7 @@
 import { createContext, useState } from "react";
 import { data } from "../api";
 
-import { generalAssemblyRef } from "../api/firebase-config";
-import { collection } from "firebase/firestore";
-
-import ctx from "./utils";
+import useContextUtils from "../hooks/use-context-utils";
 
 const AppContext = createContext();
 
@@ -17,6 +14,8 @@ export const AppProvider = ({ children }) => {
   const [questions, setQuestions] = useState([]);
   const [score, setScore] = useState(0);
 
+  const { getQuestionsRef, getRandomQuestions } = useContextUtils();
+
   const generateHaribot = async () => {
     setHaribot({
       type: haribotType[Math.floor(Math.random() * haribotType.length)],
@@ -25,7 +24,7 @@ export const AppProvider = ({ children }) => {
     setQuestions(generateQuestions(data));
 
     // we now get questions from questions collection
-    const test = await ctx.getRandomQuestions();
+    const test = await getRandomQuestions();
     console.log(test);
   };
 
@@ -47,6 +46,8 @@ export const AppProvider = ({ children }) => {
 
         score,
         setScore,
+
+        getQuestionsRef,
       }}
     >
       {children}
