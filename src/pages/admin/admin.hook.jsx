@@ -1,16 +1,16 @@
-import { useRef } from "react";
+import { useRef, useContext } from "react";
 
 import { addDoc } from "firebase/firestore";
-import ctx from "../../context/utils";
 
-const useAdminHook = () => {
+const useAdminHook = (context) => {
   const formRef = useRef();
+  const { getQuestionsRef } = useContext(context);
 
   const handleForm = async (e) => {
     e.preventDefault();
     document.activeElement.blur();
 
-    const questionsRef = await ctx.getQuestionsRef();
+    const questionsRef = await getQuestionsRef();
 
     const qTemplate = { prompt: "", choices: [], answer: "" };
 
