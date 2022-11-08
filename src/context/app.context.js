@@ -8,13 +8,15 @@ const AppContext = createContext();
 const haribotType = ["yellow"];
 
 export const AppProvider = ({ children }) => {
-  const [showInstructionsModal, setShowInstructionsModal] = useState(false);
-  const [haribot, setHaribot] = useState({});
-  const [showHaribotStateChange, setShowHaribotStateChange] = useState(false);
-  const [questions, setQuestions] = useState([]);
   const [score, setScore] = useState(0);
 
-  const { getQuestionsRef, getRandomQuestions } = useContextUtils();
+  const [haribot, setHaribot] = useState({});
+  const [questions, setQuestions] = useState([]);
+
+  const [showInstructionsModal, setShowInstructionsModal] = useState(false);
+  const [showHaribotStateChange, setShowHaribotStateChange] = useState(false);
+
+  const { getQuestionsRef, getRandomQuestions, getApiKey } = useContextUtils();
 
   const generateHaribot = async () => {
     setHaribot({
@@ -48,6 +50,7 @@ export const AppProvider = ({ children }) => {
         setScore,
 
         getQuestionsRef,
+        getApiKey,
       }}
     >
       {children}

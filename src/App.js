@@ -6,11 +6,7 @@ import InstructionsModal from "./components/card/instructions-modal";
 import Welcome from "./pages/welcome";
 import Quiz from "./pages/quiz";
 import Score from "./pages/score";
-
-import Protected from "./components/protected/protected.component";
 import Admin from "./pages/admin";
-
-import Unauthorized from "./pages/unauthorized/unauthorized-page.component";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -32,15 +28,7 @@ function App() {
             <Route index element={<Quiz />} />
             <Route path="score" element={<Score />} />
           </Route>
-          <Route
-            path="/admin"
-            element={
-              <Protected apiKey={process.env.REACT_APP_API_KEY}>
-                <Admin />
-              </Protected>
-            }
-          />
-          <Route path="/unauthorized" element={<Unauthorized />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
       </>
     )

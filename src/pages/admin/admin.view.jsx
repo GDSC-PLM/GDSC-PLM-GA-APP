@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import AddQuestionForm from "./components/admin.component";
+import AddQuestionForm, { AuthModal } from "./components/admin.component";
 
 const AdminContainer = styled.main`
   display: flex;
@@ -15,7 +15,14 @@ const AdminContainer = styled.main`
   height: 100vh;
 `;
 
-const AdminView = ({ formRef, addQuestion }) => {
+const AdminView = ({
+  formRef,
+  addQuestion,
+  authRef,
+  authorize,
+  isAuthorized,
+}) => {
+  console.log(isAuthorized);
   return (
     <AdminContainer>
       <h1
@@ -27,7 +34,11 @@ const AdminView = ({ formRef, addQuestion }) => {
       >
         Admin
       </h1>
-      <AddQuestionForm formRef={formRef} addQuestion={addQuestion} />
+      {isAuthorized ? (
+        <AddQuestionForm formRef={formRef} addQuestion={addQuestion} />
+      ) : (
+        <AuthModal authRef={authRef} authorize={authorize} />
+      )}
     </AdminContainer>
   );
 };

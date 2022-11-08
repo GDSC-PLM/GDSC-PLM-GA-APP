@@ -11,7 +11,7 @@ const useContextUtils = () => {
       }))
       .filter((obj) => obj.app === "gdsc-plm-save-haribot");
 
-    return data.id;
+    return { appDocId: data.id, apiKey: data.apiKey };
   };
 
   const fetchAppQuestions = async (appDocId) => {
@@ -44,14 +44,20 @@ const useContextUtils = () => {
     });
   };
 
+  const getApiKey = async () => {
+    const { apiKey } = await fetchAppDocument();
+
+    return apiKey;
+  };
+
   const getQuestionsRef = async () => {
-    const appDocId = await fetchAppDocument();
+    const { appDocId } = await fetchAppDocument();
 
     return collection(generalAssemblyRef, appDocId, "questions");
   };
 
   const getRandomQuestions = async () => {
-    const appDocId = await fetchAppDocument();
+    const { appDocId } = await fetchAppDocument();
     const appQuestions = await fetchAppQuestions(appDocId);
     const questions = generateRandomQuestions(appQuestions);
 
@@ -61,6 +67,7 @@ const useContextUtils = () => {
   return {
     getQuestionsRef,
     getRandomQuestions,
+    getApiKey,
   };
 };
 

@@ -25,6 +25,16 @@ const AddForm = styled.form`
   gap: 20px;
 `;
 
+const AuthForm = styled(AddForm)`
+  font-family: "Google Sans";
+  font-size: 12px;
+  color: var(--gdsc-core-red);
+
+  section > p {
+    display: none;
+  }
+`;
+
 const FormLabel = styled.label`
   font-family: "Google Sans";
   color: var(--gdsc-text-primary);
@@ -111,6 +121,23 @@ const AddQuestionForm = ({ formRef, addQuestion }) => {
 
         <FormSubmit type="submit">Add Question</FormSubmit>
       </AddForm>
+    </FormContainer>
+  );
+};
+
+export const AuthModal = ({ authRef, authorize }) => {
+  return (
+    <FormContainer>
+      <AuthForm ref={authRef} onSubmit={authorize}>
+        <section>
+          <FormLabel htmlFor="apiKey">API Key</FormLabel>
+          <FormInput id="apiKey" name="apiKey" placeholder="Enter key here" />
+          <p id="invalid-msg" className="invalid-msg">
+            You've entered an invalid API key, please try again.
+          </p>
+        </section>
+        <FormSubmit type="submit">Enter</FormSubmit>
+      </AuthForm>
     </FormContainer>
   );
 };
