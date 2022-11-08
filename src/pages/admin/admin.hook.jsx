@@ -1,4 +1,4 @@
-import { useState, useRef, useContext } from "react";
+import { useState, useRef, useContext, useEffect } from "react";
 
 import { addDoc } from "firebase/firestore";
 
@@ -7,6 +7,7 @@ const useAdminHook = (context) => {
   const authRef = useRef();
 
   const [isAuthorized, setIsAuthorized] = useState(false);
+  const [apiKey, setApiKey] = useState("");
 
   const { getQuestionsRef, getApiKey } = useContext(context);
 
@@ -49,12 +50,14 @@ const useAdminHook = (context) => {
     e.preventDefault();
     document.activeElement.blur();
 
-    const invalidMsg = document.getElementById("invalid-msg");
-    const apiKey = await getApiKey();
-
     const [authInput] = [...authRef.current.elements].filter(
       (element) => element.type === "text"
     );
+    const invalidMsg = document.getElementById("invalid-msg");
+
+    if (!authInput.value) {
+      return;
+    }
 
     if (authInput.value !== apiKey) {
       authInput.style.border = "2px solid var(--gdsc-core-red)";
@@ -72,6 +75,15 @@ const useAdminHook = (context) => {
     invalidMsg.style.display = "none";
     setIsAuthorized(true);
   };
+
+  useEffect(() => {
+    (async () => {
+      if (!apiKey) {
+        const _apiKey = await getApiKey();
+        setApiKey(_apiKey);
+      }
+    })();
+  });
 
   return { formRef, authRef, handleForm, authorize, isAuthorized };
 };

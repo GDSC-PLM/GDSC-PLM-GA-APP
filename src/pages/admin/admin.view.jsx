@@ -22,7 +22,6 @@ const AdminView = ({
   authorize,
   isAuthorized,
 }) => {
-  console.log(isAuthorized);
   return (
     <AdminContainer>
       <h1
