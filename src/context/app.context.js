@@ -3,7 +3,7 @@ import useContextUtils from "../hooks/use-context-utils";
 
 const AppContext = createContext();
 
-const haribotType = ["yellow"];
+const haribotType = ["blue", "green", "red", "white", "yellow"];
 
 export const AppProvider = ({ children }) => {
   const [score, setScore] = useState(0);
@@ -23,6 +23,7 @@ export const AppProvider = ({ children }) => {
     setHaribot({
       type: haribotType[Math.floor(Math.random() * haribotType.length)],
       state: 0,
+      transition: 1,
     });
 
     setQuestions(_questions);

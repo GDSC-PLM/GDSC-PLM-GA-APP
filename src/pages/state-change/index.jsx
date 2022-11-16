@@ -6,8 +6,10 @@ import StateChangeView from "./s-change.view";
 import AppContext from "../../context/app.context";
 
 const StateChange = () => {
-  const { haribot } = useStateChangeHook(AppContext);
-  return <StateChangeView haribot={haribot} />;
+  const { haribot, showHaribotStateChange } = useStateChangeHook(AppContext);
+  return (
+    <StateChangeView haribot={haribot} stateChange={showHaribotStateChange} />
+  );
 };
 
 export default React.memo(StateChange);
