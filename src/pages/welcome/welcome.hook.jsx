@@ -9,8 +9,9 @@ const useWelcomeHook = (context) => {
     setShowInstructionsModal(true);
   };
 
-  const navigateToQuiz = () => {
-    generateHaribot();
+  const navigateToQuiz = async () => {
+    await generateHaribot();
+
     navigate("/quiz");
     setShowInstructionsModal(false);
   };

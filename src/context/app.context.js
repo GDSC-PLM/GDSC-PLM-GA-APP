@@ -1,6 +1,4 @@
 import { createContext, useState } from "react";
-import { data } from "../api";
-
 import useContextUtils from "../hooks/use-context-utils";
 
 const AppContext = createContext();
@@ -19,15 +17,15 @@ export const AppProvider = ({ children }) => {
   const { getQuestionsRef, getRandomQuestions, getApiKey } = useContextUtils();
 
   const generateHaribot = async () => {
+    const _questions = await getRandomQuestions();
+    console.log(_questions);
+
     setHaribot({
       type: haribotType[Math.floor(Math.random() * haribotType.length)],
       state: 0,
     });
-    setQuestions(generateQuestions(data));
 
-    // we now get questions from questions collection
-    const test = await getRandomQuestions();
-    console.log(test);
+    setQuestions(_questions);
   };
 
   return (
@@ -57,21 +55,5 @@ export const AppProvider = ({ children }) => {
     </AppContext.Provider>
   );
 };
-
-function generateQuestions(q) {
-  const indices = [];
-
-  while (indices.length !== 5) {
-    let i = Math.floor(Math.random() * q.length);
-    if (indices.indexOf(i) === -1) indices.push(i);
-  }
-
-  return indices.map((val, i) => {
-    return {
-      ...q[val],
-      number: i + 1,
-    };
-  });
-}
 
 export default AppContext;
