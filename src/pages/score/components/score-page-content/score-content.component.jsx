@@ -62,7 +62,7 @@ const ScoreContent = ({ haribot, score, tryAgain }) => {
           : "Uh oh, Haribot drowned."}
       </ScoreMessage>
       <Haribot
-        src={require(`../../../../assets/images/haribots/${haribot.type}-${haribot.state}.png`)}
+        src={require(`../../../../assets/gifs/stills/${haribot.type}-${haribot.state}.gif`)}
       />
       <ScoreContainer>
         <ScoreCTA score={score} onClick={tryAgain} />

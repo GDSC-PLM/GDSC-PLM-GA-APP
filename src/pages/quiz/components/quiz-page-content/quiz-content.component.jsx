@@ -39,7 +39,7 @@ const QuizContent = ({ haribot, question, checkAnswer }) => {
   return (
     <QuizContentContainer>
       <Haribot
-        src={require(`../../../../assets/images/haribots/${haribot.type}-${haribot.state}.png`)}
+        src={require(`../../../../assets/gifs/stills/${haribot.type}-${haribot.state}.gif`)}
         alt="haribot-state"
       />
       <QnA question={question} handleAnswer={checkAnswer} />

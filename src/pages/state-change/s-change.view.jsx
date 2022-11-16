@@ -44,13 +44,15 @@ const ChangeContainer = styled.main`
 
 const Haribot = styled.img``;
 
-const StateChangeView = ({ haribot }) => {
+const StateChangeView = ({ haribot, stateChange }) => {
   return (
     <ChangeContainer id="state-change-page">
-      <Haribot
-        src={require(`../../assets/images/haribots/${haribot.type}-${haribot.state}.png`)}
-        alt="haribot-state-change"
-      />
+      {stateChange && (
+        <Haribot
+          src={require(`../../assets/gifs/transition/${haribot.type}-trans-${haribot.transition}.gif`)}
+          alt="haribot-state-change"
+        />
+      )}
       <GDSCLogo />
     </ChangeContainer>
   );

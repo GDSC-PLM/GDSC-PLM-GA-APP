@@ -39,7 +39,7 @@ const ModalImage = styled.img`
   scale: 0.75;
 
   @media only screen and (min-width: 1024px) {
-    scale: 0.9;
+    scale: 0.85;
   }
 `;
 
@@ -97,7 +97,7 @@ const InstructionsModalComponent = ({ navigateToQuiz = null }) => {
         <GDSCLogo />
         <ModalMainContent>
           <ModalImage
-            src={require("../../../assets/images/haribots/yellow-2.png")}
+            src={require("../../../assets/gifs/stills/yellow-3.gif")}
             alt="haribot"
           />
           <ModalTextContainer>

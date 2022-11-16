@@ -2,7 +2,14 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const useQuizHook = (context) => {
-  const { haribot, questions, setScore, setHaribot } = useContext(context);
+  const {
+    haribot,
+    questions,
+    showHaribotStateChange,
+    setScore,
+    setHaribot,
+    setShowHaribotStateChange,
+  } = useContext(context);
   const navigate = useNavigate();
 
   const [questionNumber, setQuestionNumber] = useState(1);
@@ -20,18 +27,27 @@ const useQuizHook = (context) => {
       stateChange.style.visibility = "visible";
       stateChange.style.transform = "translateX(0%)";
 
+      setShowHaribotStateChange(true);
+
       setTimeout(() => {
         setQuestionNumber((prev) => prev + 1);
         setHaribot((prev) => {
           return {
             ...prev,
             state: prev["state"] + 1,
+            transition:
+              prev["transition"] < 3
+                ? prev["transition"] + 1
+                : prev["transition"],
           };
         });
+
         choice.style.background = "var(--gdsc-core-blue1)";
         stateChange.style.transform = "translateX(100%)";
         stateChange.style.visibility = "hidden";
-      }, [2000]);
+
+        setShowHaribotStateChange(false);
+      }, [4000]);
 
       return;
     }
@@ -55,7 +71,7 @@ const useQuizHook = (context) => {
     navigate(`/quiz?question=${questionNumber}`, { replace: true });
   }, [questionNumber, haribot]);
 
-  return { haribot, question, checkAnswer };
+  return { haribot, question, showHaribotStateChange, checkAnswer };
 };
 
 export default useQuizHook;
