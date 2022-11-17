@@ -18,7 +18,6 @@ export const AppProvider = ({ children }) => {
 
   const generateHaribot = async () => {
     const _questions = await getRandomQuestions();
-    console.log(_questions);
 
     setHaribot({
       type: haribotType[Math.floor(Math.random() * haribotType.length)],

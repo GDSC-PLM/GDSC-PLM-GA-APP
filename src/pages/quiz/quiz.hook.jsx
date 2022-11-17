@@ -10,6 +10,7 @@ const useQuizHook = (context) => {
     setHaribot,
     setShowHaribotStateChange,
   } = useContext(context);
+
   const navigate = useNavigate();
 
   const [questionNumber, setQuestionNumber] = useState(1);
