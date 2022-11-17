@@ -44,6 +44,17 @@ const useContextUtils = () => {
     });
   };
 
+  const randomizeChoices = (arr) => {
+    const output = [];
+
+    while (output.length !== 4) {
+      const i = Math.floor(Math.random() * 4);
+      if (!output.includes(i)) output.push(i);
+    }
+
+    return output.map((index) => arr[index]);
+  };
+
   const getApiKey = async () => {
     const { apiKey } = await fetchAppDocument();
 
@@ -61,7 +72,12 @@ const useContextUtils = () => {
     const appQuestions = await fetchAppQuestions(appDocId);
     const questions = generateRandomQuestions(appQuestions);
 
-    return questions;
+    return questions.map((q) => {
+      return {
+        ...q,
+        choices: randomizeChoices(q.choices),
+      };
+    });
   };
 
   return {
