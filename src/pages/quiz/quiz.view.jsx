@@ -5,6 +5,7 @@ import QuizContent from "./components/quiz-page-content/quiz-content.component";
 import GDSCLogo from "../../assets/images/gdsc-logo/GDSC-PLM.logo";
 
 import StateChange from "../state-change/index";
+import GDSCBorder from "../../components/border/gdsc-top-border/gdsc-top-border.component";
 
 export const QuizContainer = styled.main`
   display: flex;
@@ -38,15 +39,18 @@ export const QuizContainer = styled.main`
 
 const QuizView = ({ haribot, question, checkAnswer }) => {
   return (
-    <QuizContainer>
-      <QuizContent
-        haribot={haribot}
-        question={question}
-        checkAnswer={checkAnswer}
-      />
-      <GDSCLogo />
-      <StateChange />
-    </QuizContainer>
+    <>
+      <GDSCBorder />
+      <QuizContainer>
+        <QuizContent
+          haribot={haribot}
+          question={question}
+          checkAnswer={checkAnswer}
+        />
+        <GDSCLogo />
+        <StateChange />
+      </QuizContainer>
+    </>
   );
 };
 

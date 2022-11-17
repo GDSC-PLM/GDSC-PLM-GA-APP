@@ -16,7 +16,7 @@ function App() {
     setTimeout(() => {
       preloader.style.display = "none";
       setLoading(false);
-    }, 1500);
+    }, 3000);
   }
   return (
     !loading && (
