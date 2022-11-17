@@ -5,6 +5,8 @@ import QuizContent from "./components/quiz-page-content/quiz-content.component";
 import GDSCLogo from "../../assets/images/gdsc-logo/GDSC-PLM.logo";
 
 import StateChange from "../state-change/index";
+import SessionExpiredModal from "../../components/card/session-expired-modal";
+
 import GDSCBorder from "../../components/border/gdsc-top-border/gdsc-top-border.component";
 
 export const QuizContainer = styled.main`
@@ -40,16 +42,22 @@ export const QuizContainer = styled.main`
 const QuizView = ({ haribot, question, checkAnswer }) => {
   return (
     <>
-      <GDSCBorder />
-      <QuizContainer>
-        <QuizContent
-          haribot={haribot}
-          question={question}
-          checkAnswer={checkAnswer}
-        />
-        <GDSCLogo />
-        <StateChange />
-      </QuizContainer>
+      {question ? (
+        <>
+          <GDSCBorder />
+          <QuizContainer>
+            <QuizContent
+              haribot={haribot}
+              question={question}
+              checkAnswer={checkAnswer}
+            />
+            <GDSCLogo />
+            <StateChange />
+          </QuizContainer>
+        </>
+      ) : (
+        <SessionExpiredModal />
+      )}
     </>
   );
 };

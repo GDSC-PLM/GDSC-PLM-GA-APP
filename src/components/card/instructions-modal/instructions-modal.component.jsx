@@ -5,7 +5,7 @@ import { FlexContainer } from "../../../styles/containers";
 import GDSCLogo from "../../../assets/images/gdsc-logo/GDSC-PLM.logo";
 import CallToAction from "../../buttons/cta/cta-button.component";
 
-const InstructionsModalContainer = styled.section`
+export const InstructionsModalContainer = styled.section`
   max-width: 355px;
   padding: 1.5rem;
   background: #fff;
@@ -30,12 +30,12 @@ const InstructionsModalContainer = styled.section`
   }
 `;
 
-const InstructionsModalContent = styled(FlexContainer)`
+export const InstructionsModalContent = styled(FlexContainer)`
   flex-direction: column;
   width: 100%;
 `;
 
-const ModalImage = styled.img`
+export const ModalImage = styled.img`
   scale: 0.75;
 
   @media only screen and (min-width: 1024px) {
@@ -43,7 +43,7 @@ const ModalImage = styled.img`
   }
 `;
 
-const ModalMainContent = styled(FlexContainer)`
+export const ModalMainContent = styled(FlexContainer)`
   margin-top: 16px;
   flex-direction: column;
   @media only screen and (min-width: 1024px) {
@@ -51,14 +51,14 @@ const ModalMainContent = styled(FlexContainer)`
   }
 `;
 
-const ModalTextContainer = styled(FlexContainer)`
+export const ModalTextContainer = styled(FlexContainer)`
   flex-direction: column;
   @media only screen and (min-width: 1024px) {
     padding: 0rem 1.75rem;
   }
 `;
 
-const ModalText = styled.p`
+export const ModalText = styled.p`
   font-family: "Google Sans";
   text-align: center;
   ${({ type }) => {
