@@ -5,7 +5,7 @@ import useWelcomeHook from "../../../pages/welcome/welcome.hook";
 import InstructionsModalComponent from "./instructions-modal.component";
 import AppContext from "../../../context/app.context";
 
-const Modal = styled.main`
+export const Modal = styled.main`
   display: flex;
   align-items: center;
   justify-content: center;

@@ -27,13 +27,15 @@ const ButtonText = styled.p`
   font-weight: 600;
   font-size: 1rem;
 
+  width: 100%;
+
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
 
   @media only screen and (min-width: 1024px) {
-    font-size: 24px;
+    font-size: 20px;
   }
 `;
 
