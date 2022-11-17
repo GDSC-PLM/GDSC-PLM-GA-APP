@@ -71,7 +71,12 @@ const useQuizHook = (context) => {
     navigate(`/quiz?question=${questionNumber}`, { replace: true });
   }, [questionNumber, haribot]);
 
-  return { haribot, question, showHaribotStateChange, checkAnswer };
+  return {
+    haribot,
+    question,
+    showHaribotStateChange,
+    checkAnswer,
+  };
 };
 
 export default useQuizHook;
