@@ -41,12 +41,23 @@
         height: 100vh;
         background: #fff;
       }
+
+      #pl-gif {
+        height: 75px;
+        transition: all 300ms ease-in-out;
+      }
+
+      @media only screen and (min-width: 1024px) {
+        #pl-gif {
+          height: 100px;
+        }
+      }
     </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="pre-loader" class="wrapper">
-      <img src="./pre-loader-icon.svg" alt="haribots-loading" />
+      <img id="pl-gif" src="./pre-loader-icon.gif" alt="haribots-loading" />
     </div>
     <div id="root"></div>
   </body>
